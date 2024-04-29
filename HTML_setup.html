@@ -1,7 +1,20 @@
+<!DOCTYPE HTML>
 <html>
-<!-- Adding a data chart using Chart.js -->
 <head>
+  <title>Pump Configuration with UMPSA</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>-->
+  <script src="js/jquery.js"></script>
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+  <!-- Adding a data chart using Chart.js -->
   <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js'></script>
+  <style type="text/css">
+		.clean { padding: 0; margin: 0;}
+	</style>
 </head>
 <body onload="javascript:init()">
 <!-- Adding a slider for controlling data rate -->
@@ -13,6 +26,57 @@
 <div>
   <canvas id="line-chart" width="800" height="450"></canvas>
 </div>
+
+  <div class="container">
+	<div class="row">	
+		<div class="page-header">
+		  <h1>Learn Pump Configuration Easily <small>Modified by <a href="http://www.twitter.com/rogerin">Liow Wen An</a></small></h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3 well">
+			<p>
+				This web-based dashboard is inspired by Rogerio Alencar Filho (AJAX). Check out the original code on Github: <a href="https://github.com/rogerin/ArduinoComAjax">rogerin</a> <br/>
+				Project without a good graphical interface, as it is not the focus of this demonstration.
+			</p>
+			<p>
+				Status: <span id="status" class="label"></span>
+			</p>
+			<p>
+				<h4>Sensor 1</h4>
+				Value: <strong><span id="sensor1" ></span></strong>
+			</p>
+			<p>
+				<h4>Sensor 2</h4>
+				Value: <strong><span id="sensor2"></span></strong>
+			</p>
+			<p>
+				<h4>Buttons</h4>
+				Button 1:
+				<div class="btn-group">
+				  <button type="button" class="btn btn-default send button" id="001">Turn On</button>
+				  <button type="button" class="btn btn-default send button" id="002">Turn Off</button>
+				</div>
+				<span id="resultLight1"></span>
+				<br/>
+				Button 2:
+				<div class="btn-group">
+				  <button type="button" class="btn btn-default send button" id="003">Turn On</button>
+				  <button type="button" class="btn btn-default send button" id="004">Turn Off</button>
+				</div>
+				<span id="resultLight2"></span>
+			</p>	
+		</div>
+		<div class="col-md-9">
+			<div class="clean" id="chart_div" style="width: 100%; height: 500px;"></div>
+		</div>
+	</div>
+	<div class="row">
+		<p>Original_Creator Github: <a href="https://github.com/rogerin/ArduinoComAjax">rogerin</a> </p>
+		<p>Web-Page Creator LinkedIN: <a href="https://www.linkedin.com/in/liow-wen-an-086711248/">Liow</a> </p>
+	</div>
+</div>
+
 <!-- Adding a websocket to the client (webpage) -->
 <script>
   var webSocket, dataPlot;
