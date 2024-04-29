@@ -17,15 +17,6 @@
 	</style>
 </head>
 <body onload="javascript:init()">
-<!-- Adding a slider for controlling data rate -->
-<div>
-  <input type="range" min="1" max="10" value="5" id="dataRateSlider" oninput="sendDataRate()" />
-  <label for="dataRateSlider" id="dataRateLabel">Rate: 0.2Hz</label>
-</div>
-<hr />
-<div>
-  <canvas id="line-chart" width="800" height="450"></canvas>
-</div>
 
   <div class="container">
 	<div class="row">	
@@ -77,6 +68,17 @@
 	</div>
 </div>
 
+<!-- Adding a slider for controlling data rate -->
+<div>
+  <input type="range" min="1" max="10" value="5" id="dataRateSlider" oninput="sendDataRate()" />
+  <label for="dataRateSlider" id="dataRateLabel">Rate: 0.2Hz</label>
+</div>
+<hr />
+<div>
+  <canvas id="line-chart" width="800" height="450"></canvas>
+</div>
+
+	
 <!-- Adding a websocket to the client (webpage) -->
 <script>
   var webSocket, dataPlot;
